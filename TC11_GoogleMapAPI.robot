@@ -17,3 +17,6 @@ GoogleMapPlacesAPITC
     log to console  ${response.content}
     ${data}=    convert to string  ${response.content}
     create file    C:/Users/admin/desktop/a.txt     ${data}
+
+
+    #keekeekkeekek1
