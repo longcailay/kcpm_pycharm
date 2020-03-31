@@ -1,45 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.7.6 on win32)" generated="20200325 19:18:07.816" rpa="false">
-<suite id="s1" name="TC10 BearerAuthType" source="C:\Users\admin\PycharmProjects\HTTPRequest\TestCases\TC10_BearerAuthType.robot">
-<test id="s1-t1" name="BearerAuthTest:">
-<kw name="Get File" library="OperatingSystem">
-<doc>Returns the contents of a specified file.</doc>
+<robot generator="Robot 3.1.2 (Python 3.7.6 on win32)" generated="20200328 15:15:47.367" rpa="false">
+<suite id="s1" name="TC1 GET Request" source="C:\Users\admin\PycharmProjects\HTTPRequest\TestCases\TC1_GET_Request.robot">
+<test id="s1-t1" name="Get_weatherInfo">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
-<arg>C:/Users/admin/desktop/json.txt</arg>
+<arg>myssion</arg>
+<arg>${base_url}</arg>
+</arguments>
+<msg timestamp="20200328 15:15:48.042" level="INFO">Creating Session using : alias=myssion, url=http://restapi.demoqa.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200328 15:15:48.042" endtime="20200328 15:15:48.042"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>myssion</arg>
+<arg>/utilities/weather/city/${city}</arg>
 </arguments>
 <assign>
-<var>${data_file}</var>
+<var>${response}</var>
 </assign>
-<msg timestamp="20200325 19:18:07.941" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\admin\desktop\json.txt"&gt;C:\Users\admin\desktop\json.txt&lt;/a&gt;'.</msg>
-<msg timestamp="20200325 19:18:07.956" level="INFO">${data_file} = {
-  "to_id": 0,
-  "category": 1,
-  "title": "asssssss",
-  "content": "asaaaaaaaa",
-  "isAnonymous": false
-}</msg>
-<status status="PASS" starttime="20200325 19:18:07.941" endtime="20200325 19:18:07.956"></status>
+<msg timestamp="20200328 15:15:48.043" level="INFO">GET Request using : uri=/utilities/weather/city/Hanoi, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20200328 15:15:49.551" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200328 15:15:48.043" endtime="20200328 15:15:49.551"></status>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>${data_file}</arg>
-</arguments>
-<status status="PASS" starttime="20200325 19:18:07.956" endtime="20200325 19:18:07.956"></status>
+<kw name="convert to200">
+<assign>
+<var>${status_code}=</var>
+</assign>
+<msg timestamp="20200328 15:15:49.558" level="FAIL">No keyword with name 'convert to200' found.</msg>
+<status status="FAIL" starttime="20200328 15:15:49.558" endtime="20200328 15:15:49.558"></status>
 </kw>
-<status status="PASS" starttime="20200325 19:18:07.941" endtime="20200325 19:18:07.956" critical="yes"></status>
+<status status="FAIL" starttime="20200328 15:15:48.042" endtime="20200328 15:15:49.559" critical="yes">No keyword with name 'convert to200' found.</status>
 </test>
-<status status="PASS" starttime="20200325 19:18:07.831" endtime="20200325 19:18:07.956"></status>
+<status status="FAIL" starttime="20200328 15:15:47.369" endtime="20200328 15:15:49.563"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="TC10 BearerAuthType">TC10 BearerAuthType</stat>
+<stat pass="0" fail="1" id="s1" name="TC1 GET Request">TC1 GET Request</stat>
 </suite>
 </statistics>
 <errors>
